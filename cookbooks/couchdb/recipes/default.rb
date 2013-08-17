@@ -9,6 +9,7 @@
 
 execute "apt-get-update" do
   command "apt-get update"
+  not_if { File.exists?("/etc/couchdb") }
 end
 
 package "python-software-properties" do
@@ -18,6 +19,7 @@ end
 
 execute "apt-add-repository-couchdb" do
   command "apt-add-repository ppa:nilya/couchdb-1.3"
+  not_if { File.exists?("/etc/couchdb") }
 end
 
 package "couchdb" do
