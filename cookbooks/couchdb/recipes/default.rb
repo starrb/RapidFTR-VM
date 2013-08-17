@@ -23,3 +23,10 @@ end
 package "couchdb" do
   action :install
 end
+
+cookbook_file "/etc/couchdb/local.ini" do
+  source "local.ini"
+  mode 0664
+  owner "couchdb"
+  user "couchdb"
+end
