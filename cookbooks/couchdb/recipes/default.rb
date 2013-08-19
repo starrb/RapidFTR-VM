@@ -7,11 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-execute "apt-get-update" do
-  command "apt-get update"
-  not_if { File.exists?("/etc/couchdb") }
-end
-
 package "python-software-properties" do
   action :install
   options "--assume-yes"
@@ -19,7 +14,7 @@ end
 
 execute "apt-add-repository-couchdb" do
   command "apt-add-repository ppa:nilya/couchdb-1.3"
-  not_if { File.exists?("/etc/couchdb") }
+  not_if "dpkg --get-selections | grep -q 'couchdb'"
 end
 
 package "couchdb" do
