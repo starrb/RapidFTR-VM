@@ -6,3 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+package "curl" do
+  action :install
+end
+
+execute "download-install-rvm" do
+  command "curl -L https://get.rvm.io | bash"
+end

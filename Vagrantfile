@@ -12,5 +12,6 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe("core")
     chef.add_recipe("couchdb")
+    chef.add_recipe("rvm")
   end
 end
