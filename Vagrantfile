@@ -13,5 +13,6 @@ Vagrant::Config.run do |config|
     chef.add_recipe("core")
     chef.add_recipe("couchdb")
     chef.add_recipe("rvm")
+    chef.add_recipe("ruby")
   end
 end
