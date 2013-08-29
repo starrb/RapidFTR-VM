@@ -23,7 +23,7 @@ end
 
 cookbook_file "/etc/couchdb/local.ini" do
   source "local.ini"
-  mode 0664
   owner "couchdb"
-  user "couchdb"
+  group "couchdb"
+  mode 0664
 end
