@@ -10,9 +10,9 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 5984, 5984
     
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe("core")
-    chef.add_recipe("couchdb")
-    chef.add_recipe("rvm")
-    chef.add_recipe("ruby")
+    chef.add_recipe "core"
+    chef.add_recipe "couchdb"
+    chef.add_recipe "rvm"
+    chef.add_recipe "ruby"
   end
 end
