@@ -27,3 +27,11 @@ cookbook_file "/etc/couchdb/local.ini" do
   group "couchdb"
   mode 0664
 end
+
+# Force CouchDB to use the updated local.ini file. Kill the CouchDB Erlang
+# process rather than restarting the service as a) restarting the service
+# doesn't seem to reload the local.ini file and b) restarting the service
+# immediately after installation seems to fail.
+execute "kill-couchdb" do
+  command "kill -9 `cat /var/run/couchdb/couchdb.pid`"
+end
