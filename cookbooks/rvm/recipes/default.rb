@@ -13,5 +13,5 @@ end
 
 execute "download-install-rvm" do
   command "su -l vagrant -c 'curl -L https://get.rvm.io | bash'"
-  not_if "rvm -v > /dev/null 2>&1"
+  not_if { ::File.exists? "/home/vagrant/.rvm" }
 end
