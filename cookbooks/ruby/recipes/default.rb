@@ -9,5 +9,4 @@
 
 execute "rvm-install-ruby" do
   command "su -l vagrant -c 'rvm install 1.9.3-p392 --patch railsexpress'"
-  not_if "rvm list | grep -q 'ruby-1.9.3-p392'"
 end
