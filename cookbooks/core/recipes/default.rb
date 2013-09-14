@@ -17,6 +17,10 @@ package "build-essential" do
   action :install
 end
 
+package "git" do
+  action :install
+end
+
 package "libxml2-dev" do
   action :install
 end
