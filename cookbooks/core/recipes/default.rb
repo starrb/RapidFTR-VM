@@ -21,6 +21,10 @@ package "git" do
   action :install
 end
 
+package "openjdk-7-jdk" do
+  action :install
+end
+
 package "libxml2-dev" do
   action :install
 end
