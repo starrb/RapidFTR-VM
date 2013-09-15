@@ -17,6 +17,12 @@ execute "apt-add-repository-couchdb" do
   not_if "dpkg --get-selections | grep -q 'couchdb'"
 end
 
+# Requires a unique name from other recipes in order to run
+execute "apt-get-update-ppa" do
+  command "apt-get update"
+  not_if "dpkg --get-selections | grep -q 'couchdb'"
+end
+
 package "couchdb" do
   action :install
 end
