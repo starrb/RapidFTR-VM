@@ -26,3 +26,8 @@ end
 package "xvfb" do
   action :install
 end
+
+execute "set-display" do
+  command "echo 'DISPLAY=:99' >> /etc/environment"
+  not_if "cat /etc/environment | grep -q '^DISPLAY=:99$'"
+end
