@@ -7,6 +7,8 @@ Vagrant::Config.run do |config|
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
   
+  config.vm.share_folder "RapidFTR", "/RapidFTR", "../RapidFTR"
+  
   config.vm.forward_port 3000, 3000
   config.vm.forward_port 5984, 5984
   
